@@ -1,0 +1,16 @@
+{
+  "name": "TOS Movement Simulator",
+  "main": "index.html",
+  "version": "0.0.1",
+  "single-instance": true,
+  "window": {
+    "title": "TOS Movement Simulator",
+    "width": 430,
+    "height": 620,
+    "min_width": 430,
+    "min_height": 620,
+	"toolbar": false
+  },
+  "chromium-args": "--child-clean-exit",
+  "single-instance" : true
+}

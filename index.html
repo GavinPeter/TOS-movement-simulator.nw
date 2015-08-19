@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tower of Savior Movement Simulatior</title>
+    <meta name="descriptions" content="Create a placement and move a rune ">
+    <meta name="keywords" content="Tower of Savior, puzzle&dragons">
+    <meta name="viewport" content="width=320" >
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Style-type" content="text/css">
+    <link rel="stylesheet" type="text/css" href="button.css" media="all">
+    <script type="text/javascript" charset="UTF-8" src="mt.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="Global.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="SceneManager.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="BallSelectScene.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="FieldScene.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="main.js"></script>
+
+  </head>
+  <body id="body" onload="javascript:init();">
+   
+  <h2 id="title">Tower of Savior Movement Simulator</h2>
+
+    <!--div style="color:#FF0000;">2015/01/24 corresponding to the arrangement of the poison rune and bother rune placement .</div>
+    <div style="margin:4px;"><li>Create a rune placement of TOS , or you can check how to disappear by moving.</li></div>
+    <div style="margin:4px;"><li>Placing the runes : placing a rune that is selected in the runes-list with click on the field.</li></div>
+    <div style="margin:4px;"><li>Move the rune : You can check by moving drag the rune on the field.</li></div-->
+
+    <div>
+      <div style="float:left;">
+     
+		<ul id="navlist">
+			<li><a href="javascript:openTodaysQuestion();" onclick="">Try today example</a></li>
+			<li><a href="javascript:shareImage();">Recode movement</a></li>
+			<li><a href="javascript:shareWeb();">Share URL</a></li>
+		</ul>
+          <!--div id="openTodaysQuestion" style="margin:4px;"><a href="javascript:openTodaysQuestion();">Try today's example</a></div>
+          <div style="margin:4px;"><a href="javascript:shareImage();">Recoding how to move</a></div>
+          <div style="margin:4px;"><a href="javascript:shareWeb();">Share this URL.</a></div-->
+          <!--div style="margin:4px;"><a href="javascript:shareTwitter();">Share to Twitter。</a></div-->
+        <div>
+          <ul id="tab" class="button-group">
+            <li><button style="width:120px;height:48px;" class="button" id="buttonEditMode" onclick="javascript:setMode(0);">Place runes</button></li>
+            <li><button style="width:120px;height:48px;" class="button" id="buttonRecordMode" onclick="javascript:setMode(1);">Move a rune</button></li>
+            <li><button style="width:120px;height:48px;" class="button" id="buttonPlayMode" onclick="javascript:setMode(2);">Replay moving</button></li>
+          </ul>
+        </div>
+        <div>
+          <canvas id="fieldCanvas" style="background-color:#888888;" width="384" height="320"></canvas><br />
+        </div>
+        <table width="100%">
+          <tr>
+            <td>
+              <img id="red" src="images/fire_mini.png" width="24" style="opacity:0.4;" /><img id="green"  width="24" src="images/wood_mini.png" style="opacity:0.4;" /><img id="blue"  width="24" src="images/water_mini.png" style="opacity:0.4;" /><img id="light"  width="24" src="images/light_mini.png" style="opacity:0.4;" /><img id="dark"  width="24" src="images/dark_mini.png" style="opacity:0.4;" /><img id="life"   width="24" src="images/heart_mini.png" style="opacity:0.4;" /><br /><!--img id="poison" src="images/block_poison_mini.png" style="opacity:0.4;" /><img id="ozyama" src="images/block_ozyama_mini.png" style="opacity:0.4;" /-->
+            </td>
+            <td align="right">
+              <div id="info" style="margin:10px;">Combo:0 Move:0</div>
+            </td>
+          </tr>
+        </table>
+        <hr id="hr" align="left" />
+        <div id="editModeControllers" style="display:block;" >
+          <canvas id="dropsCanvas" style="background-color:#888888;" width="384" height="128"></canvas><br />
+          <button style="margin:4px;" class="button" id="buttonReplaceRandom" onclick="javascript:replaceRandom();">Random Movement</button>
+	  <div style="margin:4px;" class="file">
+	    Image reading
+	    <input type="file" id="inputFile"/>
+	  </div>
+          <br/>
+          <button style="margin:4px;" class="button" id="buttonSaveLayout" onclick="javascript:saveLayout();">Save Movement</button>
+          <button style="margin:4px;" class="button" id="buttonLoadLayout" onclick="javascript:loadLayout();">Load Movement</button>
+        </div>
+        <div id="moveModeControllers" style="display:none;">
+          <button style="margin:4px;" class="button" id="buttonResetMove" onclick="javascript:resetMove();">Redo</button>
+          <button style="margin:4px;" class="button" id="buttonToggleMoveMode" onclick="javascript:toggleMoveMode();">Normal mode</button>
+        </div>
+        <div id="playModeControllers" style="display:none;">
+          <button style="margin:4px;" class="button" id="buttonPlay" onclick="javascript:play();">Replay</button>
+          <button style="margin:4px;" class="button" id="buttonPlay" onclick="javascript:stop();">Initial Movement</button>
+        </div>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+    <br />
+
+    <div id="creator" style="margin:10px;">
+      AUTHOR: <a href="http://serizawa.web5.jp/puzzdra_theory_maker/index.html">薄力粉</a>  
+	  Modified BY Peter Chang.
+    </div>
+  </body>
+</html>
+
+
